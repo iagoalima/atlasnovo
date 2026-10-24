@@ -16,7 +16,11 @@ function splitRoleIds(value: string): string[] { return [...new Set(value.split(
 async function findMedal(identifier: string) {
   const byId = await prisma.medal.findUnique({ where: { id: identifier }, include: { category: true, deliveryRoles: true, approvalRoles: true, deliveryPermissionRoles: true } });
   if (byId) return byId;
-  return prisma.medal.findFirst({ where: { name: { equals: identifier, mode: "insensitive" } }, include: { category: true, deliveryRoles: true, approvalRoles: true, deliveryPermissionRoles: true } });
+  const medals = await prisma.medal.findMany({
+    where: { active: true },
+    include: { category: true, deliveryRoles: true, approvalRoles: true, deliveryPermissionRoles: true },
+  });
+  return medals.find((medal) => medal.name.toLocaleLowerCase() === identifier.trim().toLocaleLowerCase()) ?? null;
 }
 
 async function validateRoles(interaction: ChatInputCommandInteraction, roleIds: string[], label: string): Promise<boolean> {
@@ -75,7 +79,8 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
 
   let category = medal.category;
   if (categoryIdentifier !== null) {
-    const foundCategory = (await prisma.medalCategory.findUnique({ where: { id: categoryIdentifier } })) ?? (await prisma.medalCategory.findFirst({ where: { name: { equals: categoryIdentifier, mode: "insensitive" } } }));
+    const foundCategory = (await prisma.medalCategory.findUnique({ where: { id: categoryIdentifier } })) ??
+      (await prisma.medalCategory.findMany()).find((item) => item.name.toLocaleLowerCase() === categoryIdentifier.trim().toLocaleLowerCase()) ?? null;
     if (!foundCategory || !foundCategory.active) { await interaction.reply({ content: "❌ A nova categoria não foi encontrada ou está desativada.", flags: MessageFlags.Ephemeral }); return; }
     category = foundCategory;
   }
@@ -87,7 +92,10 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   if (approvalRoleIds && !(await validateRoles(interaction, approvalRoleIds, "cargos_aprovacao"))) return;
   if (deliveryPermissionRoleIds && !(await validateRoles(interaction, deliveryPermissionRoleIds, "cargos_entrega_permissao"))) return;
 
-  const duplicate = name ? await prisma.medal.findFirst({ where: { id: { not: medal.id }, name: { equals: name.trim(), mode: "insensitive" }, active: true } }) : null;
+  const duplicate = name
+    ? (await prisma.medal.findMany({ where: { id: { not: medal.id }, active: true } }))
+        .find((item) => item.name.toLocaleLowerCase() === name.trim().toLocaleLowerCase()) ?? null
+    : null;
   if (duplicate) { await interaction.reply({ content: "❌ Já existe outra medalha ativa com esse nome.", flags: MessageFlags.Ephemeral }); return; }
 
   const medalData: { name?: string; requirements?: string; jurisprudence?: string | null; emoji?: string | null; color?: string | null; categoryId: string } = { categoryId: category.id };
