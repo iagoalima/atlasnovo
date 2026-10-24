@@ -75,7 +75,6 @@ async function handleMedalAutocomplete(
         ? {
             name: {
               contains: focused,
-              mode: "insensitive",
             },
           }
         : {}),
