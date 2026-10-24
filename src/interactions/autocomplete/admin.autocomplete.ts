@@ -25,7 +25,6 @@ async function handleCategoryAutocomplete(
         ? {
             name: {
               contains: focused,
-              mode: "insensitive",
             },
           }
         : {}),
@@ -58,20 +57,12 @@ async function handleMedalAutocomplete(
   let categoryId: string | undefined;
 
   if (categoryIdentifier) {
-    const category = await prisma.medalCategory.findFirst({
-      where: {
-        OR: [
-          { id: categoryIdentifier },
-          {
-            name: {
-              equals: categoryIdentifier,
-              mode: "insensitive",
-            },
-          },
-        ],
-      },
+    const categoryById = await prisma.medalCategory.findUnique({
+      where: { id: categoryIdentifier },
       select: { id: true },
     });
+    const category = categoryById ?? (await prisma.medalCategory.findMany({ select: { id: true, name: true } }))
+      .find((item) => item.name.toLocaleLowerCase() === categoryIdentifier.trim().toLocaleLowerCase()) ?? null;
 
     categoryId = category?.id;
   }
