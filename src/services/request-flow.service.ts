@@ -286,8 +286,13 @@ export async function handleRequestModal(interaction: ModalSubmitInteraction): P
   await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
   try {
+    const latestTicket = await prisma.ticket.aggregate({
+      _max: { ticketNumber: true },
+    });
+
     const ticket = await prisma.ticket.create({
       data: {
+        ticketNumber: (latestTicket._max.ticketNumber ?? 0) + 1,
         channelId: config.requestReviewChannelId,
         requestGuildId: interaction.guild.id,
         userId,
