@@ -235,9 +235,8 @@ export async function handleMedalModal(interaction: ModalSubmitInteraction): Pro
     return;
   }
 
-  const existingMedal = await prisma.medal.findFirst({
-    where: { name: { equals: name, mode: "insensitive" }, active: true },
-  });
+  const existingMedal = (await prisma.medal.findMany({ where: { active: true } }))
+    .find((item) => item.name.toLocaleLowerCase() === name.trim().toLocaleLowerCase()) ?? null;
   if (existingMedal) {
     await interaction.reply({ content: "❌ Já existe uma medalha ativa com esse nome.", flags: MessageFlags.Ephemeral });
     return;
@@ -656,15 +655,12 @@ export async function handleMedalDeliveryPermissionRoleSelect(interaction: Strin
 
     await prisma.medalRole.createMany({
       data: draft.deliveryRoleIds.map((roleId) => ({ medalId: medal.id, roleId })),
-      skipDuplicates: true,
     });
     await prisma.medalApprovalRole.createMany({
       data: draft.approvalRoleIds.map((roleId) => ({ medalId: medal.id, roleId })),
-      skipDuplicates: true,
     });
     await prisma.medalDeliveryPermissionRole.createMany({
       data: draft.deliveryPermissionRoleIds.map((roleId) => ({ medalId: medal.id, roleId })),
-      skipDuplicates: true,
     });
 
     await logAuditEvent({
