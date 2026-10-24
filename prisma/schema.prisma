@@ -101,7 +101,7 @@ model MedalDeliveryPermissionRole {
 
 model Ticket {
   id String @id @default(cuid())
-  ticketNumber Int @unique @default(autoincrement())
+  ticketNumber Int @unique
   channelId String
   requestGuildId String?
   userId String
