@@ -1,16 +1,24 @@
 import "dotenv/config";
 
-import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import { PrismaClient } from "../../generated/prisma/client.js";
 
-const connectionString = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL;
 
-if (!connectionString) {
-  throw new Error("DATABASE_URL não foi definida no arquivo .env");
+if (!databaseUrl) {
+  throw new Error(
+    "DATABASE_URL não foi definida. Configure, por exemplo, file:./prisma/atlas.db para SQLite.",
+  );
 }
 
-const adapter = new PrismaPg({
-  connectionString,
+if (!databaseUrl.startsWith("file:")) {
+  throw new Error(
+    "DATABASE_URL inválida: o Atlas está configurado para SQLite e espera uma URL iniciada por file:.",
+  );
+}
+
+const adapter = new PrismaBetterSqlite3({
+  url: databaseUrl,
 });
 
 export const prisma = new PrismaClient({
