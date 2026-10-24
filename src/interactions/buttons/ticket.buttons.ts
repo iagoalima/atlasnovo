@@ -538,9 +538,14 @@ async function handleTicketMedalConfirm(
           interaction.user.id
         );
 
+      const latestTicket = await prisma.ticket.aggregate({
+        _max: { ticketNumber: true },
+      });
+
       const ticket =
         await prisma.ticket.create({
           data: {
+            ticketNumber: (latestTicket._max.ticketNumber ?? 0) + 1,
             channelId: "CREATING",
             userId:
               interaction.user.id,
