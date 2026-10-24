@@ -28,7 +28,8 @@ export const data = new SlashCommandBuilder()
 async function findCategory(identifier: string) {
   const byId = await prisma.medalCategory.findUnique({ where: { id: identifier } });
   if (byId) return byId;
-  return prisma.medalCategory.findFirst({ where: { name: { equals: identifier, mode: "insensitive" } } });
+  const categories = await prisma.medalCategory.findMany();
+  return categories.find((category) => category.name.toLocaleLowerCase() === identifier.trim().toLocaleLowerCase()) ?? null;
 }
 
 export async function execute(interaction: ChatInputCommandInteraction): Promise<void> {
@@ -93,7 +94,10 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
     return;
   }
 
-  const duplicate = name ? await prisma.medalCategory.findFirst({ where: { id: { not: category.id }, name: { equals: name.trim(), mode: "insensitive" } } }) : null;
+  const duplicate = name
+    ? (await prisma.medalCategory.findMany({ where: { id: { not: category.id } } }))
+        .find((item) => item.name.toLocaleLowerCase() === name.trim().toLocaleLowerCase()) ?? null
+    : null;
   if (duplicate) {
     await interaction.reply({ content: "❌ Já existe uma categoria com esse nome.", flags: MessageFlags.Ephemeral });
     return;
