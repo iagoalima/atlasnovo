@@ -257,9 +257,13 @@ export async function createTicket(
   let ticketId: string | null = null;
 
   try {
+    const latestTicket = await prisma.ticket.aggregate({
+      _max: { ticketNumber: true },
+    });
     const ticket =
       await prisma.ticket.create({
         data: {
+          ticketNumber: (latestTicket._max.ticketNumber ?? 0) + 1,
           channelId: channel.id,
 
           userId,
