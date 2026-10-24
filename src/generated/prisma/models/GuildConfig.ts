@@ -35,6 +35,8 @@ export type GuildConfigMinAggregateOutputType = {
   responsibleRoleId: string | null
   medalCatalogMessageId: string | null
   medalCatalogChannelId: string | null
+  dashboardChannelId: string | null
+  dashboardMessageId: string | null
   ticketPanelChannelId: string | null
   ticketPanelMessageId: string | null
   requestPanelChannelId: string | null
@@ -56,6 +58,8 @@ export type GuildConfigMaxAggregateOutputType = {
   responsibleRoleId: string | null
   medalCatalogMessageId: string | null
   medalCatalogChannelId: string | null
+  dashboardChannelId: string | null
+  dashboardMessageId: string | null
   ticketPanelChannelId: string | null
   ticketPanelMessageId: string | null
   requestPanelChannelId: string | null
@@ -77,6 +81,8 @@ export type GuildConfigCountAggregateOutputType = {
   responsibleRoleId: number
   medalCatalogMessageId: number
   medalCatalogChannelId: number
+  dashboardChannelId: number
+  dashboardMessageId: number
   ticketPanelChannelId: number
   ticketPanelMessageId: number
   requestPanelChannelId: number
@@ -100,6 +106,8 @@ export type GuildConfigMinAggregateInputType = {
   responsibleRoleId?: true
   medalCatalogMessageId?: true
   medalCatalogChannelId?: true
+  dashboardChannelId?: true
+  dashboardMessageId?: true
   ticketPanelChannelId?: true
   ticketPanelMessageId?: true
   requestPanelChannelId?: true
@@ -121,6 +129,8 @@ export type GuildConfigMaxAggregateInputType = {
   responsibleRoleId?: true
   medalCatalogMessageId?: true
   medalCatalogChannelId?: true
+  dashboardChannelId?: true
+  dashboardMessageId?: true
   ticketPanelChannelId?: true
   ticketPanelMessageId?: true
   requestPanelChannelId?: true
@@ -142,6 +152,8 @@ export type GuildConfigCountAggregateInputType = {
   responsibleRoleId?: true
   medalCatalogMessageId?: true
   medalCatalogChannelId?: true
+  dashboardChannelId?: true
+  dashboardMessageId?: true
   ticketPanelChannelId?: true
   ticketPanelMessageId?: true
   requestPanelChannelId?: true
@@ -236,6 +248,8 @@ export type GuildConfigGroupByOutputType = {
   responsibleRoleId: string | null
   medalCatalogMessageId: string | null
   medalCatalogChannelId: string | null
+  dashboardChannelId: string | null
+  dashboardMessageId: string | null
   ticketPanelChannelId: string | null
   ticketPanelMessageId: string | null
   requestPanelChannelId: string | null
@@ -278,6 +292,8 @@ export type GuildConfigWhereInput = {
   responsibleRoleId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   medalCatalogMessageId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   medalCatalogChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
+  dashboardChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
+  dashboardMessageId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   ticketPanelChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   ticketPanelMessageId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   requestPanelChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
@@ -299,6 +315,8 @@ export type GuildConfigOrderByWithRelationInput = {
   responsibleRoleId?: Prisma.SortOrderInput | Prisma.SortOrder
   medalCatalogMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
   medalCatalogChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
+  dashboardChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
+  dashboardMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
   ticketPanelChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
   ticketPanelMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
   requestPanelChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -323,6 +341,8 @@ export type GuildConfigWhereUniqueInput = Prisma.AtLeast<{
   responsibleRoleId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   medalCatalogMessageId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   medalCatalogChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
+  dashboardChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
+  dashboardMessageId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   ticketPanelChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   ticketPanelMessageId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
   requestPanelChannelId?: Prisma.StringNullableFilter<"GuildConfig"> | string | null
@@ -344,6 +364,8 @@ export type GuildConfigOrderByWithAggregationInput = {
   responsibleRoleId?: Prisma.SortOrderInput | Prisma.SortOrder
   medalCatalogMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
   medalCatalogChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
+  dashboardChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
+  dashboardMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
   ticketPanelChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
   ticketPanelMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
   requestPanelChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -371,6 +393,8 @@ export type GuildConfigScalarWhereWithAggregatesInput = {
   responsibleRoleId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
   medalCatalogMessageId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
   medalCatalogChannelId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
+  dashboardChannelId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
+  dashboardMessageId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
   ticketPanelChannelId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
   ticketPanelMessageId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
   requestPanelChannelId?: Prisma.StringNullableWithAggregatesFilter<"GuildConfig"> | string | null
@@ -392,6 +416,8 @@ export type GuildConfigCreateInput = {
   responsibleRoleId?: string | null
   medalCatalogMessageId?: string | null
   medalCatalogChannelId?: string | null
+  dashboardChannelId?: string | null
+  dashboardMessageId?: string | null
   ticketPanelChannelId?: string | null
   ticketPanelMessageId?: string | null
   requestPanelChannelId?: string | null
@@ -413,6 +439,8 @@ export type GuildConfigUncheckedCreateInput = {
   responsibleRoleId?: string | null
   medalCatalogMessageId?: string | null
   medalCatalogChannelId?: string | null
+  dashboardChannelId?: string | null
+  dashboardMessageId?: string | null
   ticketPanelChannelId?: string | null
   ticketPanelMessageId?: string | null
   requestPanelChannelId?: string | null
@@ -434,6 +462,8 @@ export type GuildConfigUpdateInput = {
   responsibleRoleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -455,6 +485,8 @@ export type GuildConfigUncheckedUpdateInput = {
   responsibleRoleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -476,6 +508,8 @@ export type GuildConfigCreateManyInput = {
   responsibleRoleId?: string | null
   medalCatalogMessageId?: string | null
   medalCatalogChannelId?: string | null
+  dashboardChannelId?: string | null
+  dashboardMessageId?: string | null
   ticketPanelChannelId?: string | null
   ticketPanelMessageId?: string | null
   requestPanelChannelId?: string | null
@@ -497,6 +531,8 @@ export type GuildConfigUpdateManyMutationInput = {
   responsibleRoleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -518,6 +554,8 @@ export type GuildConfigUncheckedUpdateManyInput = {
   responsibleRoleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medalCatalogChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dashboardMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ticketPanelMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestPanelChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -539,6 +577,8 @@ export type GuildConfigCountOrderByAggregateInput = {
   responsibleRoleId?: Prisma.SortOrder
   medalCatalogMessageId?: Prisma.SortOrder
   medalCatalogChannelId?: Prisma.SortOrder
+  dashboardChannelId?: Prisma.SortOrder
+  dashboardMessageId?: Prisma.SortOrder
   ticketPanelChannelId?: Prisma.SortOrder
   ticketPanelMessageId?: Prisma.SortOrder
   requestPanelChannelId?: Prisma.SortOrder
@@ -560,6 +600,8 @@ export type GuildConfigMaxOrderByAggregateInput = {
   responsibleRoleId?: Prisma.SortOrder
   medalCatalogMessageId?: Prisma.SortOrder
   medalCatalogChannelId?: Prisma.SortOrder
+  dashboardChannelId?: Prisma.SortOrder
+  dashboardMessageId?: Prisma.SortOrder
   ticketPanelChannelId?: Prisma.SortOrder
   ticketPanelMessageId?: Prisma.SortOrder
   requestPanelChannelId?: Prisma.SortOrder
@@ -581,6 +623,8 @@ export type GuildConfigMinOrderByAggregateInput = {
   responsibleRoleId?: Prisma.SortOrder
   medalCatalogMessageId?: Prisma.SortOrder
   medalCatalogChannelId?: Prisma.SortOrder
+  dashboardChannelId?: Prisma.SortOrder
+  dashboardMessageId?: Prisma.SortOrder
   ticketPanelChannelId?: Prisma.SortOrder
   ticketPanelMessageId?: Prisma.SortOrder
   requestPanelChannelId?: Prisma.SortOrder
@@ -620,6 +664,8 @@ export type GuildConfigSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   responsibleRoleId?: boolean
   medalCatalogMessageId?: boolean
   medalCatalogChannelId?: boolean
+  dashboardChannelId?: boolean
+  dashboardMessageId?: boolean
   ticketPanelChannelId?: boolean
   ticketPanelMessageId?: boolean
   requestPanelChannelId?: boolean
@@ -641,6 +687,8 @@ export type GuildConfigSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   responsibleRoleId?: boolean
   medalCatalogMessageId?: boolean
   medalCatalogChannelId?: boolean
+  dashboardChannelId?: boolean
+  dashboardMessageId?: boolean
   ticketPanelChannelId?: boolean
   ticketPanelMessageId?: boolean
   requestPanelChannelId?: boolean
@@ -662,6 +710,8 @@ export type GuildConfigSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   responsibleRoleId?: boolean
   medalCatalogMessageId?: boolean
   medalCatalogChannelId?: boolean
+  dashboardChannelId?: boolean
+  dashboardMessageId?: boolean
   ticketPanelChannelId?: boolean
   ticketPanelMessageId?: boolean
   requestPanelChannelId?: boolean
@@ -683,6 +733,8 @@ export type GuildConfigSelectScalar = {
   responsibleRoleId?: boolean
   medalCatalogMessageId?: boolean
   medalCatalogChannelId?: boolean
+  dashboardChannelId?: boolean
+  dashboardMessageId?: boolean
   ticketPanelChannelId?: boolean
   ticketPanelMessageId?: boolean
   requestPanelChannelId?: boolean
@@ -693,7 +745,7 @@ export type GuildConfigSelectScalar = {
   updatedAt?: boolean
 }
 
-export type GuildConfigOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "requestGuildId" | "deliveryGuildId" | "ticketCategoryId" | "logChannelId" | "transcriptChannelId" | "staffRoleId" | "responsibleRoleId" | "medalCatalogMessageId" | "medalCatalogChannelId" | "ticketPanelChannelId" | "ticketPanelMessageId" | "requestPanelChannelId" | "requestPanelMessageId" | "requestReviewChannelId" | "requestsOpen" | "createdAt" | "updatedAt", ExtArgs["result"]["guildConfig"]>
+export type GuildConfigOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "requestGuildId" | "deliveryGuildId" | "ticketCategoryId" | "logChannelId" | "transcriptChannelId" | "staffRoleId" | "responsibleRoleId" | "medalCatalogMessageId" | "medalCatalogChannelId" | "dashboardChannelId" | "dashboardMessageId" | "ticketPanelChannelId" | "ticketPanelMessageId" | "requestPanelChannelId" | "requestPanelMessageId" | "requestReviewChannelId" | "requestsOpen" | "createdAt" | "updatedAt", ExtArgs["result"]["guildConfig"]>
 
 export type $GuildConfigPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "GuildConfig"
@@ -709,6 +761,8 @@ export type $GuildConfigPayload<ExtArgs extends runtime.Types.Extensions.Interna
     responsibleRoleId: string | null
     medalCatalogMessageId: string | null
     medalCatalogChannelId: string | null
+    dashboardChannelId: string | null
+    dashboardMessageId: string | null
     ticketPanelChannelId: string | null
     ticketPanelMessageId: string | null
     requestPanelChannelId: string | null
@@ -1150,6 +1204,8 @@ export interface GuildConfigFieldRefs {
   readonly responsibleRoleId: Prisma.FieldRef<"GuildConfig", 'String'>
   readonly medalCatalogMessageId: Prisma.FieldRef<"GuildConfig", 'String'>
   readonly medalCatalogChannelId: Prisma.FieldRef<"GuildConfig", 'String'>
+  readonly dashboardChannelId: Prisma.FieldRef<"GuildConfig", 'String'>
+  readonly dashboardMessageId: Prisma.FieldRef<"GuildConfig", 'String'>
   readonly ticketPanelChannelId: Prisma.FieldRef<"GuildConfig", 'String'>
   readonly ticketPanelMessageId: Prisma.FieldRef<"GuildConfig", 'String'>
   readonly requestPanelChannelId: Prisma.FieldRef<"GuildConfig", 'String'>

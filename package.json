@@ -17,9 +17,9 @@
     "discord-bot",
     "typescript",
     "prisma",
-    "postgresql"
+    "sqlite"
   ],
-  "author": "Iago Antônio Viana Lima",
+  "author": "ClaudirDoPneu",
   "license": "MIT",
   "dependencies": {
     "@devjacob/discord-html-transcripts": "^4.5.0",

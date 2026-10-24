@@ -1366,6 +1366,8 @@ export const GuildConfigScalarFieldEnum = {
   responsibleRoleId: 'responsibleRoleId',
   medalCatalogMessageId: 'medalCatalogMessageId',
   medalCatalogChannelId: 'medalCatalogChannelId',
+  dashboardChannelId: 'dashboardChannelId',
+  dashboardMessageId: 'dashboardMessageId',
   ticketPanelChannelId: 'ticketPanelChannelId',
   ticketPanelMessageId: 'ticketPanelMessageId',
   requestPanelChannelId: 'requestPanelChannelId',
